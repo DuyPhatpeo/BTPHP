@@ -10,24 +10,25 @@ function taoMaTran($m, $n) {
 }
 
 function inMaTran($maTran) {
-    echo "<table border='1' cellspacing='0' cellpadding='5'>";
+    echo "<table border='1' cellspacing='0' cellpadding='5' style='border-collapse: collapse; text-align: center; font-family: Arial, sans-serif;'>";
     foreach ($maTran as $hang) {
-        echo "<tr>";
+        echo "<tr style='background-color: #f2f2f2;'>";
         foreach ($hang as $phanTu) {
-            echo "<td>$phanTu</td>";
+            echo "<td style='padding: 10px;'>" . ($phanTu < 0 ? "<span style='color: red;'>$phanTu</span>" : $phanTu) . "</td>";
         }
         echo "</tr>";
     }
     echo "</table>";
 }
 
+// Khởi tạo kích thước ngẫu nhiên cho ma trận
 $m = rand(2, 5);
-echo "Số m: $m<br>";    
+echo "<h2>Số hàng (m): $m</h2>";    
 $n = rand(2, 5);
-echo "Số n: $n<br>";
+echo "<h2>Số cột (n): $n</h2>";
 
 $maTran = taoMaTran($m, $n);
-echo "Ma trận ban đầu: <br>";
+echo "<h3>Ma trận ban đầu:</h3>";
 inMaTran($maTran);
 
 function thayAmThanh0(&$maTran) {
@@ -41,6 +42,6 @@ function thayAmThanh0(&$maTran) {
 }
 
 thayAmThanh0($maTran);
-echo "Ma trận sau khi thay thế các phần tử âm thành 0:<br>";
+echo "<h3>Ma trận sau khi thay thế các phần tử âm thành 0:</h3>";
 inMaTran($maTran);
 ?>

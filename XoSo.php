@@ -6,47 +6,60 @@
     <title>Kết quả xổ số</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f9f9f9;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #e9ecef;
             margin: 0;
             padding: 0;
+            color: #343a40;
         }
         h2 {
             text-align: center;
-            color: #333;
+            color: #495057;
             margin-top: 40px;
+            font-size: 24px;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 10px;
         }
         table {
             width: 80%;
             max-width: 600px;
             margin: 40px auto;
             border-collapse: collapse;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
         }
         th, td {
-            border: 1px solid #ddd;
+            border: 1px solid #dee2e6;
             padding: 15px;
             text-align: center;
         }
         th {
-            background-color: #f4f4f4;
-            color: #333;
+            background-color: #f1f1f1;
+            color: #495057;
+            font-size: 18px;
         }
         td {
-            font-size: 18px;
+            font-size: 16px;
         }
         .special {
             color: #e74c3c;
             font-weight: bold;
-            font-size: 24px;
+            font-size: 20px;
         }
         .bold {
             font-weight: bold;
             color: #2c3e50;
         }
         tr:hover {
-            background-color: #f1f1f1;
+            background-color: #f8f9fa;
+        }
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 14px;
+            color: #6c757d;
         }
     </style>
 </head>
@@ -65,7 +78,6 @@ $ngay_tieng_viet = array(
 
 $thu = date('l');
 $ngay = date('d/m/Y');
-echo"Trần Duy Phát";
 echo "<h2>Xổ Số Kiến Thiết - " . $ngay_tieng_viet[$thu] . ", ngày " . $ngay . "</h2>";
 
 function taoKetQua($soChuSo) {
@@ -97,6 +109,10 @@ echo "<tr><td>G.1</td><td>" . taoKetQua(5) . "</td></tr>";
 echo "<tr><td>ĐB</td><td class='special'>" . taoKetQua(6) . "</td></tr>";
 echo "</table>";
 ?>
+
+<footer>
+    <p>&copy; 2024 Trần Duy Phát. Tất cả các quyền được bảo lưu.</p>
+</footer>
 
 </body>
 </html>

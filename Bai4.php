@@ -1,29 +1,28 @@
 <?php
+    // Khởi tạo biến ngẫu nhiên
     $n = rand(-50, 50);
-    echo "Số tự nhiên n là: $n<br>";
+    echo "<h2>Số tự nhiên n là: $n</h2>";
     
     if ($n < 0) {
         $n = abs($n);
-        echo "Số đối là: $n <br>";
+        echo "<h3>Số đối là: $n</h3>";
     }
 
+    // Tạo mảng ngẫu nhiên
     $mang = [];
     for ($i = 0; $i < $n; $i++) {
         $mang[] = rand(-100, 99);
     }
 
-    echo "Mảng được tạo: <br>";
+    echo "<h3>Mảng được tạo:</h3>";
     
-    echo "<table border='1' cellpadding='10' cellspacing='0'>";
-    
-
-    // Dòng chứa giá trị
-    echo "<tr>";
+    // Hiển thị mảng dưới dạng bảng
+    echo "<table border='1' cellpadding='10' cellspacing='0' style='border-collapse: collapse;'>";
+    echo "<tr style='background-color: #f2f2f2;'>";
     for ($i = 0; $i < $n; $i++) {
-        echo "<td>" . $mang[$i] . "</td>";
+        echo "<td style='text-align: center; font-family: Arial, sans-serif;'>" . $mang[$i] . "</td>";
     }
     echo "</tr>";
-    
     echo "</table>";
 
     // Tính tổng các phần tử ở vị trí lẻ
@@ -32,11 +31,13 @@
         $sum += $mang[$i];
     }
 
-    echo "Tổng các phần tử ở vị trí lẻ: $sum<br>";
+    echo "<h3>Tổng các phần tử ở vị trí lẻ: $sum</h3>";
 
+    // Sắp xếp mảng theo thứ tự tăng dần
     for ($i = 0; $i < $n - 1; $i++) {
         for ($j = 0; $j < $n - $i - 1; $j++) {
             if ($mang[$j] > $mang[$j + 1]) {
+                // Hoán đổi vị trí
                 $temp = $mang[$j];
                 $mang[$j] = $mang[$j + 1];
                 $mang[$j + 1] = $temp;
@@ -44,16 +45,14 @@
         }
     }
 
-    echo "Mảng đã sắp xếp theo thứ tự tăng dần: <br>";
+    echo "<h3>Mảng đã sắp xếp theo thứ tự tăng dần:</h3>";
     
-    echo "<table border='1' cellpadding='10' cellspacing='0'>";
-    
-
-    echo "<tr>";
+    // Hiển thị mảng đã sắp xếp dưới dạng bảng
+    echo "<table border='1' cellpadding='10' cellspacing='0' style='border-collapse: collapse;'>";
+    echo "<tr style='background-color: #f2f2f2;'>";
     for ($i = 0; $i < $n; $i++) {
-        echo "<td>" . $mang[$i] . "</td>";
+        echo "<td style='text-align: center; font-family: Arial, sans-serif;'>" . $mang[$i] . "</td>";
     }
     echo "</tr>";
-    
     echo "</table>";
 ?>

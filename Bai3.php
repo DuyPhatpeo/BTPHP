@@ -28,7 +28,7 @@
         return $tong;
     }
 
-    echo "<br>Tổng các số lẻ có 2 chữ số và nhỏ hơn $n là:" . tongSoLeHaiChuSo($n);
+    echo "<br>Tổng các số lẻ có 2 chữ số và nhỏ hơn $n là: " . tongSoLeHaiChuSo($n);
 
     function demChuSo($n) {
         $dem = 0;
