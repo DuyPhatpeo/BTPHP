@@ -54,79 +54,21 @@
     //     echo "$i \t";
     //     $i++;
     // }
-// Bài tập 1
-    // $n = rand(1,100);
-    // echo "Giá trị n là n $n.<br>";
-    // echo "Các số chẳn < $n là: ";
-    // for($i = 1;$i <= $n;$i++)
-    //     if($i%2==0)
-    //         echo "$i  ";
 
-    // $n = rand(1,10);
-    // echo "Giá trị n là n $n.<br>";
-    // echo "Bảng cửu chương  $n: ";
-    // for($i = 1;$i <= $n;$i++){
-    //         $kq = $i*$n; 
-    //         echo "$i * $n = $kq<br>";
-    // }
+    // $today = date("Y-m-d H:i:s");
+    // $dayOfWeek = date("w");
 
-    // bài 2
-
-    // for($n=1;$n<=10;$n++){
-    //     echo "Bảng cửu chương  $n: <br>";
-    //     for($i = 1;$i <= 10;$i++){
-    //         $kq = $i*$n; 
-    //         echo "$i * $n = $kq<br>";
-    //     }
-    // }
-
-    // Bài 3
-
+    // $daysInVietnamese = [
+    //     0 => "Chủ nhật",
+    //     1 => "Thứ hai",
+    //     2 => "Thứ ba",
+    //     3 => "Thứ tư",
+    //     4 => "Thứ năm",
+    //     5 => "Thứ sáu",
+    //     6 => "Thứ bảy"
+    // ];
     
-    function laSoNguyenTo($so) {
-        if ($so <= 1) {
-            return false;
-        }
-        for ($i = 2; $i <= sqrt($so); $i++) {
-            if ($so % $i == 0) {
-                return false;
-            }
-        }
-        return true;
-    }
-    $n = rand(1, 10000);
+    // echo $daysInVietnamese[$dayOfWeek] ." ".  $today;
 
 
-    if (laSoNguyenTo($n)) {
-        echo "$n là số nguyên tố.";
-    } else {
-        echo "$n không phải là số nguyên tố.";
-    }
-
-    function tongSoLeHaiChuSo($n) {
-        $tong = 0;
-        for ($i = 11; $i < $n && $i < 100; $i += 2) { 
-            $tong += $i;
-        }
-        
-        return $tong;
-    }
-
-    echo "<br>Tổng các số lẻ có 2 chữ số và nhỏ hơn $n là:" . tongSoLeHaiChuSo($n);
-
-    function demChuSo($n) {
-        $dem = 0;
-    
-        if ($n == 0) {
-            return 1; 
-        }
-
-        while ($n > 0) {
-            $n = (int)($n / 10); 
-            $dem++;
-        }
-        
-        return $dem;
-    }
-    echo "<br> Số n có " . demChuSo($n) . " chữ số.<br>";
 ?>

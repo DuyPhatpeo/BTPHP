@@ -60,7 +60,7 @@
     <h1>Bảng Cửu Chương</h1>
     <div class="container">
         <?php
-            for ($i = 2; $i <= 9; $i++) {
+            for ($i = 2; $i <= 10; $i++) {
                 echo "<table class='bang-cuu-chuong'>";
                 echo "<thead><tr><th colspan='2'>Bảng Cửu Chương {$i}</th></tr></thead>";
                 echo "<tbody>";
