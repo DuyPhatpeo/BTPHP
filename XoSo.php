@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #e9ecef;
+            background-color: #f2f4f8;
             margin: 0;
             padding: 0;
             color: #343a40;
@@ -16,8 +16,8 @@
             text-align: center;
             color: #495057;
             margin-top: 40px;
-            font-size: 24px;
-            border-bottom: 2px solid #e9ecef;
+            font-size: 28px;
+            border-bottom: 2px solid #dee2e6;
             padding-bottom: 10px;
         }
         table {
@@ -25,7 +25,7 @@
             max-width: 600px;
             margin: 40px auto;
             border-collapse: collapse;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             background-color: #fff;
             border-radius: 8px;
             overflow: hidden;
@@ -36,29 +36,30 @@
             text-align: center;
         }
         th {
-            background-color: #f1f1f1;
-            color: #495057;
-            font-size: 18px;
+            background-color: #007bff; 
+            color: #fff;
+            font-size: 20px;
         }
         td {
-            font-size: 16px;
+            font-size: 18px;
         }
         .special {
-            color: #e74c3c;
+            color: #e74c3c; 
             font-weight: bold;
-            font-size: 20px;
+            font-size: 22px;
         }
         .bold {
             font-weight: bold;
             color: #2c3e50;
         }
         tr:hover {
-            background-color: #f8f9fa;
+            background-color: #e7f1ff; 
+            transition: background-color 0.3s ease;
         }
         footer {
             text-align: center;
             margin-top: 50px;
-            font-size: 14px;
+            font-size: 16px;
             color: #6c757d;
         }
     </style>
@@ -111,7 +112,7 @@ echo "</table>";
 ?>
 
 <footer>
-    <p>&copy; 2024 Trần Duy Phát. Tất cả các quyền được bảo lưu.</p>
+    <p>&copy; 2024 Trần Duy Phát.</p>
 </footer>
 
 </body>
