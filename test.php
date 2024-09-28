@@ -71,4 +71,5 @@
     // echo $daysInVietnamese[$dayOfWeek] ." ".  $today;
 
 
+    
 ?>
