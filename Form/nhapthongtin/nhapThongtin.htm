@@ -2,70 +2,137 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nhập thông tin</title>
     <style>
         body {
-            background-color: #121212; /* Nền tối */
-            color: #ffffff; /* Chữ sáng */
-            font-family: Arial, sans-serif;
+            background-color: #1a1a1a;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 10 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        form {
+            margin-top: auto;
+            background-color: #2b2b2b;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+        }
+        h2 {
+            color: #ffffff;
+            font-size: 24px;
+        }
+        label {
+            color: #cfcfcf;
+            display: block;
+            text-align: left;
+            margin-bottom: 8px;
+            font-size: 16px;
         }
         input, select, textarea {
-            background-color: #2c2c2c;
+            width: 100%;
+            padding: 10px;
+            background-color: #3c3c3c;
+            border: 1px solid #555;
+            border-radius: 8px;
             color: #ffffff;
-            border: 1px solid #444;
-            padding: 8px;
+            margin-bottom: 20px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        input:focus, select:focus, textarea:focus {
+            border-color: #007bff;
+            outline: none;
+            box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+        }
+        input[type="radio"], input[type="checkbox"] {
+            width: auto;
+            margin-right: 10px;
+        }
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .checkbox-group label {
+            color: #ffffff;
+            display: inline-block;
+            margin-right: 15px;
+        }
+        .button-group {
+            display: flex;
+            justify-content: space-between;
         }
         input[type="submit"], input[type="reset"] {
-            background-color: #444;
-            color: #fff;
+            background-color: #007bff;
             border: none;
-            padding: 10px 20px;
+            color: white;
+            padding: 12px 24px;
+            font-size: 16px;
+            border-radius: 8px;
             cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 48%;
         }
+
         input[type="submit"]:hover, input[type="reset"]:hover {
-            background-color: #555;
-        }
-        h2, label {
-            color: #ffffff;
+            background-color: #0056b3;
         }
     </style>
 </head>
 <body>
-    <h2>Enter your information</h2>
     <form action="xulyThongtin.php" method="post">
+        <h2>Enter your information</h2>
+
         <label for="hoten">Họ tên:</label>
-        <input type="text" id="hoten" name="hoten" required><br><br>
+        <input type="text" id="hoten" name="hoten" required>
 
         <label for="diachi">Địa chỉ:</label>
-        <input type="text" id="diachi" name="diachi" required><br><br>
+        <input type="text" id="diachi" name="diachi" required>
 
         <label for="dienthoai">Số điện thoại:</label>
-        <input type="tel" id="dienthoai" name="dienthoai" pattern="[0-9]{10}" required><br><br>
+        <input type="tel" id="dienthoai" name="dienthoai" pattern="[0-9]{10}" required>
 
-
-        <label for="gioitinh">Giới tính:</label>
-        <input type="radio" id="nam" name="gioitinh" value="Nam">
-        <label for="nam">Nam</label>
-        <input type="radio" id="nu" name="gioitinh" value="Nữ" checked>
-        <label for="nu">Nữ</label><br><br>
+        <label>Giới tính:</label>
+        <input type="radio" id="nam" name="gioitinh" value="Nam" checked>
+        <label for="nam" style="display: inline;">Nam</label>
+        <input type="radio" id="nu" name="gioitinh" value="Nữ">
+        <label for="nu" style="display: inline;">Nữ</label>
 
         <label for="quoctich">Quốc tịch:</label>
         <select id="quoctich" name="quoctich">
             <option value="Việt nam">Việt nam</option>
             <option value="Khác">Khác</option>
-        </select><br><br>
+        </select>
 
         <label>Các môn đã học:</label>
-        <input type="checkbox" name="monhoc[]" value="PHP & MySQL"> PHP & MySQL
-        <input type="checkbox" name="monhoc[]" value="C#"> C#
-        <input type="checkbox" name="monhoc[]" value="XML"> XML
-        <input type="checkbox" name="monhoc[]" value="Python"> Python<br><br>
+        <div class="checkbox-group">
+            <input type="checkbox" id="php_mysql" name="monhoc[]" value="PHP & MySQL">
+            <label for="php_mysql">PHP & MySQL</label>
 
-        <label for="ghichu">Ghi chú:</label><br>
-        <textarea id="ghichu" name="ghichu" rows="4" cols="50"></textarea><br><br>
+            <input type="checkbox" id="csharp" name="monhoc[]" value="C#">
+            <label for="csharp">C#</label>
 
-        <input type="submit" value="Gửi">
-        <input type="reset" value="Hủy">
+            <input type="checkbox" id="xml" name="monhoc[]" value="XML">
+            <label for="xml">XML</label>
+
+            <input type="checkbox" id="python" name="monhoc[]" value="Python">
+            <label for="python">Python</label>
+        </div>
+
+        <label for="ghichu">Ghi chú:</label>
+        <textarea id="ghichu" name="ghichu" rows="4" cols="50"></textarea>
+
+        <div class="button-group">
+            <input type="submit" value="Gửi">
+            <input type="reset" value="Hủy">
+        </div>
     </form>
 </body>
 </html>

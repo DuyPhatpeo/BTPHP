@@ -59,13 +59,14 @@
 
         .info-label {
             font-weight: bold;
-            color: #f0f0f0;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+            color: #00bfff; 
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
         }
 
         .info-value {
-            color: #bbbbbb;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+            color: #f0f0f0;
+            font-weight: 500; 
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
         }
     </style>
 </head>
@@ -75,7 +76,6 @@
 
         <?php
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            // Lấy dữ liệu từ form và hiển thị trực tiếp
             $hoten = $_POST['hoten'];
             $diachi = $_POST['diachi'];
             $dienthoai = $_POST['dienthoai'];
