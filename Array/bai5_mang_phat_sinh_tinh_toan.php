@@ -13,70 +13,117 @@
         }
 
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f4f4f4;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #00c6ff, #0072ff);
             padding: 20px;
+            color: #333;
         }
 
         .form-container {
-            background-color: white;
-            max-width: 400px;
-            margin: 0 auto;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+            max-width: 450px;
+            margin: 30px auto;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: slide-down 0.5s ease-out;
+        }
+
+        @keyframes slide-down {
+            from {
+                transform: translateY(-20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
         }
 
         h2 {
             text-align: center;
-            color: #333;
-            margin-bottom: 20px;
+            font-size: 26px;
+            margin-bottom: 25px;
+            color: #007bff;
         }
 
         .form-group {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
 
         label {
             display: block;
             font-weight: bold;
-            margin-bottom: 5px;
-            color: #555;
+            margin-bottom: 10px;
+            color: #333;
         }
 
-        input[type="text"] {
+        input[type="text"],
+        textarea {
             width: 100%;
-            padding: 10px;
-            border-radius: 8px;
-            border: 1px solid #ccc;
+            padding: 12px;
+            border-radius: 10px;
+            border: 1px solid #ddd;
             font-size: 16px;
+            transition: border-color 0.3s ease;
+            background-color: #f9f9f9;
         }
 
-        input[readonly] {
+        input[type="text"]:focus,
+        textarea:focus {
+            border-color: #007bff;
+            outline: none;
+            box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+        }
+
+        textarea[readonly] {
             background-color: #e9ecef;
+            resize: none;
+            height: 60px;
+            white-space: nowrap;
+            overflow-x: auto;
         }
 
         button {
             width: 100%;
-            padding: 10px;
+            padding: 12px;
             background-color: #007bff;
             border: none;
-            border-radius: 8px;
+            border-radius: 10px;
             color: white;
             font-size: 16px;
+            font-weight: bold;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, transform 0.2s ease;
         }
 
         button:hover {
             background-color: #0056b3;
+            transform: translateY(-3px);
+        }
+
+        button:active {
+            background-color: #003d80;
+        }
+
+        .error {
+            color: #ff4d4d;
+            font-size: 14px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .success {
+            text-align: center;
+            margin-top: 20px;
         }
 
         /* Responsive cho thiết bị di động */
         @media (max-width: 600px) {
             .form-container {
                 width: 100%;
-                padding: 15px;
+                padding: 20px;
             }
         }
     </style>
@@ -95,26 +142,22 @@
             </div>
 
             <?php
-            // Hàm phát sinh mảng ngẫu nhiên
             function phat_sinh_mang($so_phan_tu) {
                 $mang = array();
                 for ($i = 0; $i < $so_phan_tu; $i++) {
-                    $mang[] = rand(0, 100); // Phát sinh số ngẫu nhiên từ 0 đến 100
+                    $mang[] = rand(0, 100);
                 }
                 return $mang;
             }
 
-            // Hàm tính GTLN (Giá trị lớn nhất)
             function tinh_gtln($mang) {
                 return max($mang);
             }
 
-            // Hàm tính GTNN (Giá trị nhỏ nhất)
             function tinh_gtnn($mang) {
                 return min($mang);
             }
 
-            // Hàm tính tổng các phần tử trong mảng
             function tinh_tong($mang) {
                 return array_sum($mang);
             }
@@ -123,20 +166,15 @@
                 $so_phan_tu = intval($_POST['mang']);
                 
                 if ($so_phan_tu > 0 && $so_phan_tu <= 20) {
-                    // Phát sinh mảng
                     $mang = phat_sinh_mang($so_phan_tu);
-
-                    // Tính GTLN, GTNN và Tổng
                     $gtln = tinh_gtln($mang);
                     $gtnn = tinh_gtnn($mang);
                     $tong = tinh_tong($mang);
 
-                    // Hiển thị mảng đã phát sinh
                     echo "<div class='form-group'>
                             <label for='mang_phat_sinh'>Mảng phát sinh:</label>
-                            <input type='text' id='mang_phat_sinh' value='" . implode(", ", $mang) . "' readonly>
+                            <textarea id='mang_phat_sinh' readonly>" . implode(", ", $mang) . "</textarea>
                         </div>";
-                    // Hiển thị kết quả
                     echo "
                     <div class='form-group'>
                         <label for='gtln'>GTLN (MAX) trong mảng:</label>
@@ -153,9 +191,8 @@
                         <input type='text' id='tong' name='tong' value='{$tong}' readonly>
                     </div>";
 
-                    
                 } else {
-                    echo "<p style='color: red;'>Vui lòng nhập số phần tử hợp lệ (1 - 20).</p>";
+                    echo "<p class='error'>Vui lòng nhập số phần tử hợp lệ (1 - 20).</p>";
                 }
             }
             ?>
