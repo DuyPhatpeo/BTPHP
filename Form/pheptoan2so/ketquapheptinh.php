@@ -1,5 +1,6 @@
 <?php
-function calculate($num1, $num2, $operation) {
+function calculate($num1, $num2, $operation)
+{
     switch ($operation) {
         case 'add':
             return $num1 + $num2;
@@ -53,6 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -68,6 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             height: 100vh;
             margin: 0;
         }
+
         .container {
             width: 350px;
             padding: 20px;
@@ -76,15 +79,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
             text-align: center;
         }
+
         h2 {
             color: #e0e0e0;
             font-size: 24px;
             margin-bottom: 20px;
         }
+
         label {
             font-size: 16px;
             color: #b3b3b3;
         }
+
         input[type="text"] {
             width: calc(100% - 20px);
             padding: 10px;
@@ -96,15 +102,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             color: #ffffff;
             text-align: center;
         }
+
         input[type="text"].result {
             color: #4CAF50;
             font-weight: bold;
         }
+
         .error {
             color: #ff6666;
             font-size: 14px;
             margin-top: 10px;
         }
+
         a {
             display: inline-block;
             margin-top: 15px;
@@ -116,12 +125,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             border-radius: 5px;
             transition: background-color 0.3s, color 0.3s;
         }
+
         a:hover {
             background-color: #2196F3;
             color: white;
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <h2>PHÉP TÍNH TRÊN HAI SỐ</h2>
@@ -136,4 +147,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <a href="javascript:window.history.back();">Quay lại trang trước</a>
     </div>
 </body>
+
 </html>

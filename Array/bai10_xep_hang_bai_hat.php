@@ -15,7 +15,7 @@ if (isset($_POST['add_song'])) {
 }
 
 if (isset($_POST['show_ranking'])) {
-    usort($_SESSION['songs'], function($a, $b) {
+    usort($_SESSION['songs'], function ($a, $b) {
         return $a['rank'] <=> $b['rank'];
     });
 }
@@ -23,6 +23,7 @@ if (isset($_POST['show_ranking'])) {
 
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -53,7 +54,8 @@ if (isset($_POST['show_ranking'])) {
             margin-bottom: 20px;
         }
 
-        input[type="text"], input[type="number"] {
+        input[type="text"],
+        input[type="number"] {
             width: 100%;
             padding: 10px;
             border: none;
@@ -80,7 +82,8 @@ if (isset($_POST['show_ranking'])) {
             width: 100%;
         }
 
-        .ranking-table th, .ranking-table td {
+        .ranking-table th,
+        .ranking-table td {
             padding: 15px;
             text-align: left;
         }
@@ -124,6 +127,7 @@ if (isset($_POST['show_ranking'])) {
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <h1>Bảng xếp hạng bài hát</h1>
@@ -155,4 +159,5 @@ if (isset($_POST['show_ranking'])) {
         </table>
     </div>
 </body>
+
 </html>

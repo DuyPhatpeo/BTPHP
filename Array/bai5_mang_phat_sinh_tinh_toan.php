@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -35,6 +36,7 @@
                 transform: translateY(-20px);
                 opacity: 0;
             }
+
             to {
                 transform: translateY(0);
                 opacity: 1;
@@ -128,6 +130,7 @@
         }
     </style>
 </head>
+
 <body>
     <div class="form-container">
         <h2>Phát sinh mảng và tính toán</h2>
@@ -142,7 +145,8 @@
             </div>
 
             <?php
-            function phat_sinh_mang($so_phan_tu) {
+            function phat_sinh_mang($so_phan_tu)
+            {
                 $mang = array();
                 for ($i = 0; $i < $so_phan_tu; $i++) {
                     $mang[] = rand(0, 100);
@@ -150,21 +154,24 @@
                 return $mang;
             }
 
-            function tinh_gtln($mang) {
+            function tinh_gtln($mang)
+            {
                 return max($mang);
             }
 
-            function tinh_gtnn($mang) {
+            function tinh_gtnn($mang)
+            {
                 return min($mang);
             }
 
-            function tinh_tong($mang) {
+            function tinh_tong($mang)
+            {
                 return array_sum($mang);
             }
 
             if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['mang'])) {
                 $so_phan_tu = intval($_POST['mang']);
-                
+
                 if ($so_phan_tu > 0 && $so_phan_tu <= 20) {
                     $mang = phat_sinh_mang($so_phan_tu);
                     $gtln = tinh_gtln($mang);
@@ -190,7 +197,6 @@
                         <label for='tong'>Tổng:</label>
                         <input type='text' id='tong' name='tong' value='{$tong}' readonly>
                     </div>";
-
                 } else {
                     echo "<p class='error'>Vui lòng nhập số phần tử hợp lệ (1 - 20).</p>";
                 }
@@ -199,4 +205,5 @@
         </form>
     </div>
 </body>
+
 </html>

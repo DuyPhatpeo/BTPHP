@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <title>Tìm năm nhuận</title>
@@ -10,20 +11,24 @@
             margin: 0;
             padding: 20px;
         }
+
         h3 {
             color: #333;
             text-align: center;
         }
+
         form {
             display: flex;
             flex-direction: column;
             align-items: center;
             margin-bottom: 20px;
         }
+
         label {
             font-size: 18px;
             margin-bottom: 10px;
         }
+
         input[type="text"] {
             padding: 10px;
             font-size: 16px;
@@ -32,6 +37,7 @@
             border-radius: 4px;
             margin-bottom: 10px;
         }
+
         button {
             padding: 10px 15px;
             font-size: 16px;
@@ -41,9 +47,11 @@
             border-radius: 4px;
             cursor: pointer;
         }
+
         button:hover {
             background-color: #0056b3;
         }
+
         .result {
             margin-top: 20px;
             padding: 15px;
@@ -53,6 +61,7 @@
         }
     </style>
 </head>
+
 <body>
     <h3>Tìm năm nhuận</h3>
     <form method="POST" action="">
@@ -60,19 +69,20 @@
         <input type="text" name="nam" id="nam" required>
         <button type="submit">Tìm năm nhuận</button>
     </form>
-    
+
     <?php
     // Kiểm tra nếu form được gửi bằng phương thức POST
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // Lấy dữ liệu từ form
         $nam = $_POST['nam'];
-        
+
         // Kiểm tra xem năm có phải là số nguyên và lớn hơn 0 không
         if (is_numeric($nam) && (int)$nam > 0) {
             $nam = (int)$nam; // Ép kiểu về số nguyên để tránh lỗi
 
             // Hàm kiểm tra năm nhuận
-            function nam_nhuan($nam) {
+            function nam_nhuan($nam)
+            {
                 // Năm nhuận chia hết cho 400 hoặc chia hết cho 4 nhưng không chia hết cho 100
                 return ($nam % 400 == 0) || ($nam % 4 == 0 && $nam % 100 != 0);
             }
@@ -122,7 +132,6 @@
             if (!$hasResult) {
                 echo "<div class='result'><p>Không có năm nhuận nào trong khoảng đã chọn.</p></div>";
             }
-
         } else {
             // Nếu dữ liệu nhập vào không hợp lệ
             echo "<div class='result'><p>Vui lòng nhập một năm hợp lệ (là số và lớn hơn 0).</p></div>";
@@ -130,4 +139,5 @@
     }
     ?>
 </body>
+
 </html>

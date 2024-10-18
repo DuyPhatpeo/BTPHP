@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,6 +18,7 @@
             padding: 20px;
             color: #333;
         }
+
         .container {
             background-color: white;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
@@ -27,20 +29,24 @@
             width: 100%;
             transition: transform 0.3s ease;
         }
+
         .container:hover {
             transform: scale(1.03);
         }
+
         h2 {
             color: #4CAF50;
             margin-bottom: 20px;
             font-size: 26px;
             font-weight: 600;
         }
+
         label {
             font-weight: 600;
             color: #555;
             font-size: 16px;
         }
+
         input[type="number"] {
             width: 100%;
             padding: 14px;
@@ -50,10 +56,12 @@
             font-size: 16px;
             transition: border-color 0.3s ease;
         }
+
         input[type="number"]:focus {
             border-color: #4CAF50;
             outline: none;
         }
+
         button {
             background-color: #4CAF50;
             color: white;
@@ -65,17 +73,21 @@
             transition: background-color 0.3s ease, transform 0.2s ease;
             margin-top: 10px;
         }
+
         button:hover {
             background-color: #45a049;
             transform: translateY(-3px);
         }
+
         .result {
             margin-top: 25px;
         }
+
         .result h3 {
             font-size: 22px;
             color: #333;
         }
+
         .result img {
             margin-top: 15px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
@@ -83,19 +95,24 @@
             width: 160px;
             transition: transform 0.3s ease;
         }
+
         .result img:hover {
             transform: rotate(5deg) scale(1.05);
         }
+
         @media (max-width: 500px) {
             h2 {
                 font-size: 22px;
             }
-            input[type="number"], button {
+
+            input[type="number"],
+            button {
                 font-size: 14px;
             }
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <h2>Tính năm âm lịch</h2>
@@ -130,4 +147,5 @@
         </div>
     </div>
 </body>
+
 </html>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,10 +12,12 @@
             margin: 0;
             padding: 20px;
         }
+
         h2 {
             text-align: center;
             color: #333;
         }
+
         form {
             max-width: 600px;
             margin: 0 auto;
@@ -23,18 +26,22 @@
             border-radius: 5px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
+
         label {
             display: block;
             margin: 10px 0 5px;
             font-weight: bold;
         }
-        input[type="text"], select {
+
+        input[type="text"],
+        select {
             width: 100%;
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 4px;
             box-sizing: border-box;
         }
+
         input[type="submit"] {
             background-color: #28a745;
             color: white;
@@ -45,12 +52,16 @@
             margin-top: 10px;
             width: 100%;
         }
+
         input[type="submit"]:hover {
             background-color: #218838;
         }
-        #sinhvien_fields, #giangvien_fields {
+
+        #sinhvien_fields,
+        #giangvien_fields {
             margin-top: 20px;
         }
+
         @media (max-width: 600px) {
             form {
                 padding: 15px;
@@ -58,37 +69,44 @@
         }
     </style>
 </head>
+
 <body>
     <?php
     // Lớp Người
-    class Nguoi {
+    class Nguoi
+    {
         public $hoTen;
         public $diaChi;
         public $gioiTinh;
 
-        public function __construct($hoTen, $diaChi, $gioiTinh) {
+        public function __construct($hoTen, $diaChi, $gioiTinh)
+        {
             $this->hoTen = $hoTen;
             $this->diaChi = $diaChi;
             $this->gioiTinh = $gioiTinh;
         }
 
-        public function hienThiThongTin() {
+        public function hienThiThongTin()
+        {
             return "Họ Tên: $this->hoTen, Địa chỉ: $this->diaChi, Giới tính: $this->gioiTinh";
         }
     }
 
     // Lớp Sinh viên kế thừa từ lớp Người
-    class SinhVien extends Nguoi {
+    class SinhVien extends Nguoi
+    {
         public $lopHoc;
         public $nganhHoc;
 
-        public function __construct($hoTen, $diaChi, $gioiTinh, $lopHoc, $nganhHoc) {
+        public function __construct($hoTen, $diaChi, $gioiTinh, $lopHoc, $nganhHoc)
+        {
             parent::__construct($hoTen, $diaChi, $gioiTinh);
             $this->lopHoc = $lopHoc;
             $this->nganhHoc = $nganhHoc;
         }
 
-        public function tinhDiemThuong() {
+        public function tinhDiemThuong()
+        {
             if ($this->nganhHoc == "CNTT") {
                 return 1;
             } elseif ($this->nganhHoc == "Kinh tế") {
@@ -98,7 +116,8 @@
             }
         }
 
-        public function hienThiThongTin() {
+        public function hienThiThongTin()
+        {
             $thongTinChung = parent::hienThiThongTin();
             $diemThuong = $this->tinhDiemThuong();
             return "$thongTinChung, Lớp học: $this->lopHoc, Ngành học: $this->nganhHoc, Điểm thưởng: $diemThuong";
@@ -106,16 +125,19 @@
     }
 
     // Lớp Giảng viên kế thừa từ lớp Người
-    class GiangVien extends Nguoi {
+    class GiangVien extends Nguoi
+    {
         public $trinhDo;
         const LUONG_CO_BAN = 1500000;
 
-        public function __construct($hoTen, $diaChi, $gioiTinh, $trinhDo) {
+        public function __construct($hoTen, $diaChi, $gioiTinh, $trinhDo)
+        {
             parent::__construct($hoTen, $diaChi, $gioiTinh);
             $this->trinhDo = $trinhDo;
         }
 
-        public function tinhLuong() {
+        public function tinhLuong()
+        {
             switch ($this->trinhDo) {
                 case "Cử nhân":
                     return self::LUONG_CO_BAN * 2.34;
@@ -128,10 +150,11 @@
             }
         }
 
-        public function hienThiThongTin() {
+        public function hienThiThongTin()
+        {
             $thongTinChung = parent::hienThiThongTin();
             $luong = $this->tinhLuong();
-            return "$thongTinChung, Trình độ: $this->trinhDo, Lương: $luong";
+            return "$thongTinChung, Trình độ: $this->trinhDo, Lương: " . number_format($luong) . " VND";
         }
     }
     ?>
@@ -140,36 +163,36 @@
     <form method="POST" action="">
         <label for="loai">Chọn loại:</label>
         <select name="loai" id="loai">
-            <option value="sinhvien">Sinh viên</option>
-            <option value="giangvien">Giảng viên</option>
+            <option value="sinhvien" <?php if (isset($_POST['loai']) && $_POST['loai'] == "sinhvien") echo 'selected'; ?>>Sinh viên</option>
+            <option value="giangvien" <?php if (isset($_POST['loai']) && $_POST['loai'] == "giangvien") echo 'selected'; ?>>Giảng viên</option>
         </select><br><br>
 
         <label for="hoTen">Họ Tên:</label>
-        <input type="text" name="hoTen" id="hoTen" required><br><br>
+        <input type="text" name="hoTen" id="hoTen" required value="<?php echo isset($_POST['hoTen']) ? $_POST['hoTen'] : ''; ?>"><br><br>
 
         <label for="diaChi">Địa chỉ:</label>
-        <input type="text" name="diaChi" id="diaChi" required><br><br>
+        <input type="text" name="diaChi" id="diaChi" required value="<?php echo isset($_POST['diaChi']) ? $_POST['diaChi'] : ''; ?>"><br><br>
 
         <label for="gioiTinh">Giới tính:</label>
         <select name="gioiTinh" id="gioiTinh">
-            <option value="Nam">Nam</option>
-            <option value="Nữ">Nữ</option>
+            <option value="Nam" <?php if (isset($_POST['gioiTinh']) && $_POST['gioiTinh'] == "Nam") echo 'selected'; ?>>Nam</option>
+            <option value="Nữ" <?php if (isset($_POST['gioiTinh']) && $_POST['gioiTinh'] == "Nữ") echo 'selected'; ?>>Nữ</option>
         </select><br><br>
 
-        <div id="sinhvien_fields">
+        <div id="sinhvien_fields" style="display: none;">
             <label for="lopHoc">Lớp học:</label>
-            <input type="text" name="lopHoc" id="lopHoc" required><br><br>
+            <input type="text" name="lopHoc" id="lopHoc" required value="<?php echo isset($_POST['lopHoc']) ? $_POST['lopHoc'] : ''; ?>"><br><br>
 
             <label for="nganhHoc">Ngành học:</label>
-            <input type="text" name="nganhHoc" id="nganhHoc" required><br><br>
+            <input type="text" name="nganhHoc" id="nganhHoc" required value="<?php echo isset($_POST['nganhHoc']) ? $_POST['nganhHoc'] : ''; ?>"><br><br>
         </div>
 
-        <div id="giangvien_fields" style="display:none;">
+        <div id="giangvien_fields" style="display: none;">
             <label for="trinhDo">Trình độ:</label>
             <select name="trinhDo" id="trinhDo" required>
-                <option value="Cử nhân">Cử nhân</option>
-                <option value="Thạc sĩ">Thạc sĩ</option>
-                <option value="Tiến sĩ">Tiến sĩ</option>
+                <option value="Cử nhân" <?php if (isset($_POST['trinhDo']) && $_POST['trinhDo'] == "Cử nhân") echo 'selected'; ?>>Cử nhân</option>
+                <option value="Thạc sĩ" <?php if (isset($_POST['trinhDo']) && $_POST['trinhDo'] == "Thạc sĩ") echo 'selected'; ?>>Thạc sĩ</option>
+                <option value="Tiến sĩ" <?php if (isset($_POST['trinhDo']) && $_POST['trinhDo'] == "Tiến sĩ") echo 'selected'; ?>>Tiến sĩ</option>
             </select><br><br>
         </div>
 
@@ -199,17 +222,28 @@
     ?>
 
     <script>
-    // Hiển thị đúng các trường nhập liệu theo loại được chọn
-    document.getElementById('loai').addEventListener('change', function() {
-        var loai = this.value;
-        if (loai == 'sinhvien') {
-            document.getElementById('sinhvien_fields').style.display = 'block';
-            document.getElementById('giangvien_fields').style.display = 'none';
-        } else if (loai == 'giangvien') {
-            document.getElementById('sinhvien_fields').style.display = 'none';
-            document.getElementById('giangvien_fields').style.display = 'block';
-        }
-    });
+        // Hiển thị đúng các trường nhập liệu theo loại được chọn
+        document.getElementById('loai').addEventListener('change', function() {
+            var loai = this.value;
+            if (loai == 'sinhvien') {
+                document.getElementById('sinhvien_fields').style.display = 'block';
+                document.getElementById('giangvien_fields').style.display = 'none';
+            } else if (loai == 'giangvien') {
+                document.getElementById('sinhvien_fields').style.display = 'none';
+                document.getElementById('giangvien_fields').style.display = 'block';
+            }
+        });
+
+        // Kiểm tra loại ngay khi trang được tải để hiển thị các trường nhập liệu tương ứng
+        document.addEventListener('DOMContentLoaded', function() {
+            var loai = document.getElementById('loai').value;
+            if (loai == 'sinhvien') {
+                document.getElementById('sinhvien_fields').style.display = 'block';
+            } else if (loai == 'giangvien') {
+                document.getElementById('giangvien_fields').style.display = 'block';
+            }
+        });
     </script>
 </body>
+
 </html>

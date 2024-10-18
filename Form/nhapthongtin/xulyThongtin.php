@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <title>Xử lý thông tin</title>
@@ -28,15 +29,15 @@
             text-align: center;
             margin-bottom: 20px;
             color: #1e90ff;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8); 
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
         }
 
         p {
             font-size: 16px;
             line-height: 1.6;
             margin-bottom: 10px;
-            color: #f8f8f8; 
-            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8); 
+            color: #f8f8f8;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
         }
 
         a {
@@ -59,17 +60,18 @@
 
         .info-label {
             font-weight: bold;
-            color: #00bfff; 
+            color: #00bfff;
             text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
         }
 
         .info-value {
             color: #f0f0f0;
-            font-weight: 500; 
+            font-weight: 500;
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <h2>Bạn đã đăng nhập thành công</h2>
@@ -85,13 +87,13 @@
             $ghichu = $_POST['ghichu'];
         ?>
 
-        <p><span class="info-label">Họ tên:</span> <span class="info-value"><?php echo $hoten; ?></span></p>
-        <p><span class="info-label">Giới tính:</span> <span class="info-value"><?php echo $gioitinh; ?></span></p>
-        <p><span class="info-label">Địa chỉ:</span> <span class="info-value"><?php echo $diachi; ?></span></p>
-        <p><span class="info-label">Điện thoại:</span> <span class="info-value"><?php echo $dienthoai; ?></span></p>
-        <p><span class="info-label">Quốc tịch:</span> <span class="info-value"><?php echo $quoctich; ?></span></p>
-        <p><span class="info-label">Môn học:</span> <span class="info-value"><?php echo $monhoc; ?></span></p>
-        <p><span class="info-label">Ghi chú:</span> <span class="info-value"><?php echo $ghichu; ?></span></p>
+            <p><span class="info-label">Họ tên:</span> <span class="info-value"><?php echo $hoten; ?></span></p>
+            <p><span class="info-label">Giới tính:</span> <span class="info-value"><?php echo $gioitinh; ?></span></p>
+            <p><span class="info-label">Địa chỉ:</span> <span class="info-value"><?php echo $diachi; ?></span></p>
+            <p><span class="info-label">Điện thoại:</span> <span class="info-value"><?php echo $dienthoai; ?></span></p>
+            <p><span class="info-label">Quốc tịch:</span> <span class="info-value"><?php echo $quoctich; ?></span></p>
+            <p><span class="info-label">Môn học:</span> <span class="info-value"><?php echo $monhoc; ?></span></p>
+            <p><span class="info-label">Ghi chú:</span> <span class="info-value"><?php echo $ghichu; ?></span></p>
 
         <?php } else { ?>
             <p>Không có thông tin để hiển thị.</p>
@@ -100,4 +102,5 @@
         <a href="nhapThongtin.htm">Trở về trang trước</a>
     </div>
 </body>
+
 </html>

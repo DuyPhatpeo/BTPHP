@@ -4,27 +4,32 @@ $n = null;
 $arr = [];
 
 // Hàm a: Hiển thị mảng phát sinh ngẫu nhiên
-function hienThiMang($arr) {
+function hienThiMang($arr)
+{
     return implode(", ", $arr);
 }
 
 // Hàm b: Đếm số lượng phần tử là số chẵn
-function demSoChan($arr) {
+function demSoChan($arr)
+{
     return count(array_filter($arr, fn($x) => $x % 2 == 0));
 }
 
 // Hàm c: Đếm số lượng phần tử nhỏ hơn 100
-function demSoNhoHon100($arr) {
+function demSoNhoHon100($arr)
+{
     return count(array_filter($arr, fn($x) => $x < 100));
 }
 
 // Hàm d: Tính tổng các phần tử là số âm
-function tongSoAm($arr) {
+function tongSoAm($arr)
+{
     return array_sum(array_filter($arr, fn($x) => $x < 0));
 }
 
 // Hàm e: In ra vị trí các phần tử có chữ số kề cuối là 0
-function viTriChuSoKeCuoi0($arr) {
+function viTriChuSoKeCuoi0($arr)
+{
     $viTri = [];
     foreach ($arr as $index => $value) {
         $chuSoKeCuoi = intval(($value / 10) % 10);
@@ -36,7 +41,8 @@ function viTriChuSoKeCuoi0($arr) {
 }
 
 // Hàm f: Sắp xếp các phần tử có chữ số kề cuối là 0 theo thứ tự tăng dần
-function sapXepChuSoKeCuoi0($arr) {
+function sapXepChuSoKeCuoi0($arr)
+{
     $mangChuSoKeCuoiLa0 = array_filter($arr, fn($x) => intval(($x / 10) % 10) == 0);
     sort($mangChuSoKeCuoiLa0);
     return $mangChuSoKeCuoiLa0;
@@ -59,14 +65,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ứng Dụng Tạo Mảng Ngẫu Nhiên</title>
     <style>
         body {
-            background-color: #f4f4f4; /* Màu nền sáng */
-            color: #333; /* Màu chữ tối */
+            background-color: #f4f4f4;
+            /* Màu nền sáng */
+            color: #333;
+            /* Màu chữ tối */
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
@@ -76,14 +85,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             max-width: 600px;
             margin: 50px auto;
             padding: 20px;
-            background-color: #ffffff; /* Nền trắng */
+            background-color: #ffffff;
+            /* Nền trắng */
             border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Bóng nhẹ */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            /* Bóng nhẹ */
         }
 
         h1 {
             text-align: center;
-            color: #007BFF; /* Màu tiêu đề sáng */
+            color: #007BFF;
+            /* Màu tiêu đề sáng */
         }
 
         form {
@@ -98,10 +110,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         input[type="number"] {
             width: calc(100% - 20px);
             padding: 8px;
-            border: 1px solid #ccc; /* Viền sáng */
+            border: 1px solid #ccc;
+            /* Viền sáng */
             border-radius: 4px;
-            background-color: #f9f9f9; /* Nền sáng cho ô nhập */
-            color: #333; 
+            background-color: #f9f9f9;
+            /* Nền sáng cho ô nhập */
+            color: #333;
             margin-bottom: 10px;
         }
 
@@ -121,62 +135,64 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         .result {
-            background-color: #e9ecef; 
+            background-color: #e9ecef;
             padding: 15px;
             margin-top: 10px;
             border-radius: 4px;
-            border-left: 5px solid #007BFF; 
+            border-left: 5px solid #007BFF;
         }
 
         .result h3 {
             margin: 0 0 10px 0;
-            color: #007BFF; 
+            color: #007BFF;
         }
     </style>
 </head>
+
 <body>
 
-<div class="container">
-    <h1>Tạo Mảng Ngẫu Nhiên</h1>
-    <form method="post">
-        <label for="n">Nhập số tự nhiên n:</label>
-        <input type="number" name="n" id="n" min="1" value="<?= $n ?>" required>
-        <input type="submit" value="Tạo Mảng">
-    </form>
+    <div class="container">
+        <h1>Tạo Mảng Ngẫu Nhiên</h1>
+        <form method="post">
+            <label for="n">Nhập số tự nhiên n:</label>
+            <input type="number" name="n" id="n" min="1" value="<?= $n ?>" required>
+            <input type="submit" value="Tạo Mảng">
+        </form>
 
-    <?php if ($n !== null): ?>
-        <div class="result">
-            <h3>Mảng phát sinh ngẫu nhiên:</h3>
-            <p><?= hienThiMang($arr) ?></p>
-        </div>
+        <?php if ($n !== null): ?>
+            <div class="result">
+                <h3>Mảng phát sinh ngẫu nhiên:</h3>
+                <p><?= hienThiMang($arr) ?></p>
+            </div>
 
-        <div class="result">
-            <h3>Số phần tử là số chẵn:</h3>
-            <p><?= demSoChan($arr) ?></p>
-        </div>
+            <div class="result">
+                <h3>Số phần tử là số chẵn:</h3>
+                <p><?= demSoChan($arr) ?></p>
+            </div>
 
-        <div class="result">
-            <h3>Số phần tử nhỏ hơn 100:</h3>
-            <p><?= demSoNhoHon100($arr) ?></p>
-        </div>
+            <div class="result">
+                <h3>Số phần tử nhỏ hơn 100:</h3>
+                <p><?= demSoNhoHon100($arr) ?></p>
+            </div>
 
-        <div class="result">
-            <h3>Tổng các phần tử là số âm:</h3>
-            <p><?= tongSoAm($arr) ?></p>
-        </div>
+            <div class="result">
+                <h3>Tổng các phần tử là số âm:</h3>
+                <p><?= tongSoAm($arr) ?></p>
+            </div>
 
-        <div class="result">
-            <h3>Vị trí các phần tử có chữ số kề cuối là 0:</h3>
-            <p><?= implode(", ", viTriChuSoKeCuoi0($arr)) ?></p>
-        </div>
+            <div class="result">
+                <h3>Vị trí các phần tử có chữ số kề cuối là 0:</h3>
+                <p><?= implode(", ", viTriChuSoKeCuoi0($arr)) ?></p>
+            </div>
 
-        <div class="result">
-            <h3>Mảng các phần tử có chữ số kề cuối là 0 sau khi sắp xếp:</h3>
-            <p><?= hienThiMang(sapXepChuSoKeCuoi0($arr)) ?></p>
-        </div>
+            <div class="result">
+                <h3>Mảng các phần tử có chữ số kề cuối là 0 sau khi sắp xếp:</h3>
+                <p><?= hienThiMang(sapXepChuSoKeCuoi0($arr)) ?></p>
+            </div>
 
-    <?php endif; ?>
-</div>
+        <?php endif; ?>
+    </div>
 
 </body>
+
 </html>

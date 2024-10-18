@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,79 +8,92 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #121212; 
-            color: #f0f0f0; 
+            background-color: #121212;
+            color: #f0f0f0;
         }
+
         .container {
             width: 300px;
             margin: 0 auto;
             padding: 20px;
-            background-color: #1e1e1e; 
+            background-color: #1e1e1e;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
         }
+
         .container h2 {
             text-align: center;
             color: #f0f0f0;
         }
+
         .form-group {
             margin-bottom: 15px;
-            display: flex; 
-            flex-direction: column; 
+            display: flex;
+            flex-direction: column;
         }
+
         .form-group label {
             margin-bottom: 5px;
-            color: #f0f0f0; 
-            height: 40px; 
-            line-height: 40px; 
+            color: #f0f0f0;
+            height: 40px;
+            line-height: 40px;
         }
+
         .form-group input[type="number"],
         .form-group input[type="text"] {
             width: 100%;
             padding: 8px;
-            border: 1px solid #444; 
+            border: 1px solid #444;
             border-radius: 4px;
-            background-color: #333; 
-            color: #f0f0f0; 
+            background-color: #333;
+            color: #f0f0f0;
         }
+
         .form-group input[readonly] {
-            background-color: #555; 
+            background-color: #555;
         }
+
         .input-group {
             display: flex;
         }
+
         .input-group input {
             flex: 1;
         }
+
         .input-group span {
             padding: 8px;
-            background-color: #444; 
+            background-color: #444;
             border: 1px solid #444;
             border-left: none;
             border-radius: 0 4px 4px 0;
-            color: #f0f0f0; 
+            color: #f0f0f0;
             display: inline-block;
         }
+
         button {
             width: 100%;
             padding: 10px;
-            background-color: #28a745; 
+            background-color: #28a745;
             color: #fff;
             border: none;
             border-radius: 4px;
             cursor: pointer;
             transition: background-color 0.3s;
         }
+
         button:hover {
-            background-color: #218838; 
+            background-color: #218838;
         }
+
         .error {
-            color: #ff6666; 
+            color: #ff6666;
             font-size: 14px;
             text-align: center;
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <h2>Tính tiền điện</h2>
@@ -87,7 +101,8 @@
         $error = '';
         $soTien = '';
 
-        function formatCurrency($number) {
+        function formatCurrency($number)
+        {
             return number_format($number, 0, ',', '.');
         }
 
@@ -95,7 +110,7 @@
             $tenChuHo = $_POST['tenChuHo'];
             $chiSoCu = $_POST['chiSoCu'];
             $chiSoMoi = $_POST['chiSoMoi'];
-            $donGia = $_POST['donGia']; 
+            $donGia = $_POST['donGia'];
 
             // Kiểm tra tính hợp lệ của các giá trị nhập vào
             if (empty($tenChuHo)) {
@@ -152,4 +167,5 @@
         </form>
     </div>
 </body>
+
 </html>

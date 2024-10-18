@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,6 +16,7 @@
             height: 100vh;
             margin: 0;
         }
+
         .container {
             width: 350px;
             padding: 20px;
@@ -23,21 +25,26 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
             text-align: center;
         }
+
         h2 {
             color: #e0e0e0;
             font-size: 24px;
             margin-bottom: 20px;
         }
+
         label {
             font-size: 16px;
             color: #b3b3b3;
         }
+
         .radio-group {
             margin: 15px 0;
         }
+
         input[type="radio"] {
             margin-right: 8px;
         }
+
         input[type="text"] {
             width: calc(100% - 20px);
             padding: 10px;
@@ -48,6 +55,7 @@
             background-color: #2c2c2c;
             color: #ffffff;
         }
+
         input[type="submit"] {
             width: 100%;
             padding: 12px;
@@ -59,9 +67,11 @@
             cursor: pointer;
             transition: background-color 0.3s;
         }
+
         input[type="submit"]:hover {
             background-color: #1976D2;
         }
+
         .error {
             color: #ff6666;
             font-size: 14px;
@@ -69,6 +79,7 @@
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <h2>PHÉP TÍNH TRÊN HAI SỐ</h2>
@@ -114,4 +125,5 @@
         <?php endif; ?>
     </div>
 </body>
+
 </html>

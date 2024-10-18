@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,15 +8,17 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #2c2c2c; 
+            background-color: #2c2c2c;
             color: #f2f2f2;
             margin: 0;
             padding: 20px;
         }
+
         h1 {
             text-align: center;
             color: #ffffff;
         }
+
         .container {
             max-width: 400px;
             margin: 0 auto;
@@ -24,18 +27,21 @@
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
         }
+
         input[type="text"] {
             width: 95%;
             padding: 8px;
             margin: 10px 0;
             border: 1px solid #ccc;
             border-radius: 5px;
-            background-color: #555555; 
-            color: #ffffff; 
+            background-color: #555555;
+            color: #ffffff;
         }
+
         input[type="text"]::placeholder {
             color: #bbbbbb;
         }
+
         input[type="submit"] {
             background-color: #4CAF50;
             color: white;
@@ -46,9 +52,11 @@
             width: 100%;
             font-size: 16px;
         }
+
         input[type="submit"]:hover {
             background-color: #45a049;
         }
+
         .result {
             margin-top: 20px;
             padding: 10px;
@@ -58,6 +66,7 @@
             color: #31708f;
             text-align: center;
         }
+
         .error {
             margin-top: 20px;
             padding: 10px;
@@ -69,11 +78,12 @@
         }
     </style>
 </head>
+
 <body>
     <h1>Nhập và tính trên dãy số</h1>
     <div class="container">
         <form method="POST" action="">
-            Nhập dãy số: <input type="text" name="dayso" placeholder="1,2,3,4,5" value="<?php if(isset($_POST['dayso'])) echo $_POST['dayso']; ?>" required>
+            Nhập dãy số: <input type="text" name="dayso" placeholder="1,2,3,4,5" value="<?php if (isset($_POST['dayso'])) echo $_POST['dayso']; ?>" required>
             <input type="submit" name="tinh_tong" value="Tổng dãy số">
         </form>
 
@@ -111,4 +121,5 @@
         ?>
     </div>
 </body>
+
 </html>
