@@ -1,0 +1,7 @@
+Sinh viên: Họ Tên: trần duy phát, Địa chỉ: 123 ABC, Giới tính: Nam, Lớp học: 63-CNTT.3, Ngành học: CNTT, Điểm thưởng: 1
+Sinh viên: Họ Tên: Đan, Địa chỉ: 123 djdjdj, Giới tính: Nam, Lớp học: 63.KT-3, Ngành học: Kinh tế, Điểm thưởng: 1.5
+Giảng viên: Họ Tên: Phát, Địa chỉ: 123 XYZ, Giới tính: Nam, Trình độ: Tiến sĩ, Lương: 8,490,000 VND
+Sinh viên: Họ Tên: Phúc, Địa chỉ: 123 ABC, Giới tính: Nữ, Lớp học: 63-CNTT.3, Ngành học: CNTT, Điểm thưởng: 1
+Sinh viên: Họ Tên: Phúc, Địa chỉ: 123 ABC, Giới tính: Nam, Lớp học: 63-NN.3, Ngành học: Ngoại ngữ, Điểm thưởng: 0
+Sinh viên: Họ Tên: Phúc, Địa chỉ: 123 ABC, Giới tính: Nam, Lớp học: 63-NN.3, Ngành học: Ngoại ngữ, Điểm thưởng: 0
+Sinh viên: Họ Tên: Phúc, Địa chỉ: 123 ABC, Giới tính: Nam, Lớp học: 63-NN.3, Ngành học: Ngoại ngữ, Điểm thưởng: 0
