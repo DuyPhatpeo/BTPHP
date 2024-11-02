@@ -1,0 +1,23 @@
+{
+    "1": {
+        "hoTen": "tr\u1ea7n duy ph\u00e1t",
+        "ngaySinh": "2000-10-20",
+        "gioiTinh": "N\u1eef",
+        "soDienThoai": "0909090",
+        "maChucVu": "CV01"
+    },
+    "2": {
+        "hoTen": "\u0110an",
+        "ngaySinh": "2000-10-20",
+        "gioiTinh": "N\u1eef",
+        "soDienThoai": "0909090",
+        "maChucVu": "CV02"
+    },
+    "3": {
+        "hoTen": "\u0110an",
+        "ngaySinh": "2000-10-20",
+        "gioiTinh": "N\u1eef",
+        "soDienThoai": "0909090",
+        "maChucVu": "CV03"
+    }
+}
